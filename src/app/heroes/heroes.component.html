@@ -1,0 +1,8 @@
+<h2>Tour Heroes Details</h2>
+<ul class="heroes">
+  <li *ngFor="let her of heroes;">
+    <a routerLink="/detail/{{her.id}}">
+      <span class="badge">{{her.id}} </span>{{her.name}}
+    </a>
+  </li>
+</ul>
