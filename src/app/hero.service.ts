@@ -10,8 +10,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class HeroService {
 
   constructor(
-    private http: HttpClient,
-    private messageServie: MessageService
+    private messageServie: MessageService,
+    private http: HttpClient
   ) { }
   getHeros(): Observable<Hero[]> {
     this.messageServie.add('HeroService: fetched heroes');
@@ -22,8 +22,8 @@ export class HeroService {
     return of(HEROES.find(hero => hero.id === id));
   }
   getHerosHttp(): Observable<Hero[]> {
-    return this.http.get<Hero[]>('http://localhost:8525/angular/test');
+    return this.http.get<Hero[]>('http://localhost:8525/angular/getHeroes');
   }
 
-
 }
+

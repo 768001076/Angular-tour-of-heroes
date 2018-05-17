@@ -1,4 +1,3 @@
-///<reference path="../../../node_modules/@angular/core/src/metadata/directives.d.ts"/>
 import { Component, OnInit } from '@angular/core';
 import { HeroService } from '../hero.service';
 import { Hero } from '../hero';
@@ -14,10 +13,11 @@ export class DashboardComponent implements OnInit {
   constructor(private heroService: HeroService) { }
 
   ngOnInit() {
-   this.getHeroes();
+    this.getHeroes();
   }
   getHeroes(): void {
-    this.heroService.getHeros().subscribe(heroes => this.heroes = heroes.slice(1, 5));
+    this.heroService.getHerosHttp().subscribe(heroes => this.heroes = heroes.slice(1, 5));
+    this.heroService.getHerosHttp().subscribe(heroes => console.log(heroes));
   }
 
 }
